@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # webhook URL: this URL is hit with a POST request when you push
-url="http://www.postbin.org/w6zemu"
+url=$(git config hooks.github-like-post.url)
 
+if [ -z $url ]; exit 1; fi
 
 read oldrev newrev refname
 
